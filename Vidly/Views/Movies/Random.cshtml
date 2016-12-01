@@ -1,5 +1,5 @@
 ﻿@using Vidly.Models
-@model Vidly.Models.Movie
+@model Vidly.ViewModel.RandomMovieViewModel
 
 @{
     ViewBag.Title = "Random";
@@ -9,4 +9,22 @@
 @*<h2>@( ((Movie) ViewData["Movie"]).Name )</h2>*@
 @*<h2>@ViewBag.Title</h2>*@
 
-<h2>@Model.Name</h2>
+@{
+    var popularClass = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@popularClass">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}

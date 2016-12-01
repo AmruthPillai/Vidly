@@ -13,7 +13,7 @@ namespace Vidly
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapMvcAttributeRoutes();
+            /*routes.MapMvcAttributeRoutes();*/
 
             // Legacy Routing Method
             /* routes.MapRoute(
